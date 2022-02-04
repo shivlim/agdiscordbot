@@ -12,7 +12,7 @@ const client = new Client({
 client.once('ready', () => {
     client.guilds.cache.forEach(guild => {
         let role= guild.roles.cache.find(role => role.name === rolename);
-        fs.createReadStream(path.resolve(__dirname, 'assets', 'parse.csv'))
+        fs.createReadStream(path.resolve(__dirname, 'assets', 'users.csv'))
             .pipe(csv.parse({ headers: true }))
             .on('error', error => console.error(error))
             .on('data', row => {
